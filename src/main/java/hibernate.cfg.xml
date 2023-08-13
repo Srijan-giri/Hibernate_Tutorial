@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+		<session-factory>
+			<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+			<property name="connection.url">jdbc:mysql://localhost:3306/hibernate_youtube</property>
+			<property name="connection.username">root</property>
+			<property name="connection.password">12345</property>
+		     <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
+			 <!-- <property name="connection.pool_size">100</property> -->
+			<property name="show_sql">true</property>
+			<property name="format_sql">true</property>
+			<property name="hbm2ddl.auto">update</property>
+			<mapping class="com.tut.hibernate.basic_hibernate.Student"/>
+			<mapping class="com.tut.annotations_hibernate.Address"/>
+			<mapping class="com.tut.EmbedebleAnnotation.Student_embed"/>
+			<mapping class="com.tut.OneToOne.Question"/>
+			<mapping class="com.tut.OneToOne.Answer"/>
+			<mapping class="com.tut.OneToMany.Question_OneToMany"/>
+			<mapping class="com.tut.OneToMany.Answer_OneToMany"/>
+			<mapping class="com.tut.ManyTomany.Project"/>
+			<mapping class="com.tut.ManyTomany.Emp"/>
+		   <mapping class="com.tut.FetchingTechnique.Question_Fetch"/>
+		   <mapping class="com.tut.FetchingTechnique.Answer_Fetch"/>
+	   </session-factory>
+</hibernate-configuration>

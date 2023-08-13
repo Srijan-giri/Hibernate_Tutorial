@@ -1,0 +1,44 @@
+1.Hibernate is a java framework that simplifies the devolopment of java 
+ application to interact with database.
+
+2. Hibernate is ORM tool.
+3. Hibernate is Open source and lightweight
+
+
+hibernate concept is based on POJO --> Plain Java Object. 
+
+4. Hibernate is non-invasive framework , means it won't forces the framework 
+to extend/implement any class/interface
+
+5. It is invented by Gavin King in 2001.
+
+6. Any type of application can build with Hibernate Framework.
+
+
+Traditional Way :
+----------------------------------------
+
+                                           ---------------
+        Java      ------> JDBC ----------->
+        Application                              DB
+                                           ---------------
+                                           
+                                           
+        Objects ---------------------->   DB Table
+        
+        
+        we write code manually to store objects(data) to database using jdbc.
+        
+         
+        
+ --------------------
+                    |                                  DB
+                    |                               ---------    
+     Objects----------          Hibernate             TABLE
+                    |
+                    |
+                    |
+                    |                               ----------
+ --------------------                   
+        
+        

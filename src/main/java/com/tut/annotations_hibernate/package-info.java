@@ -1,0 +1,1 @@
+package com.tut.annotations_hibernate;
