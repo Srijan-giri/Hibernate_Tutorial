@@ -2,8 +2,10 @@ package com.tut.OneToMany;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,11 +16,11 @@ public class Question_OneToMany {
 
     @Id
     @Column(name = "qId")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     private int question_id;
 
     private String question;
-    @OneToMany(mappedBy = "question")
+    @OneToMany(mappedBy = "question",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private List<Answer_OneToMany> answers;
 
     public Question_OneToMany(int question_id, String question, List<Answer_OneToMany> answers) {

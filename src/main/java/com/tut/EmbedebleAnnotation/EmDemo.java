@@ -2,9 +2,12 @@ package com.tut.EmbedebleAnnotation;
 
 import org.hibernate.Transaction;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 public class EmDemo {
 public static void main(String[] args) {
 	SessionFactory sf = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
@@ -42,6 +45,9 @@ public static void main(String[] args) {
     st3.setCity("Kolkata");
 
     st3.setCerti(new Certificate("Java Course","2 months"));
+    
+    
+    
 	  
 	Session session = sf.openSession();
     
@@ -49,10 +55,31 @@ public static void main(String[] args) {
     
 //    session.save(st);
 //    session.save(st1);
-	 session.save(st2);
-	 session.save(st3);
+//	 session.save(st2);
+//	 session.save(st3);
     
     tx.commit();
+    
+    
+    // pagination
+    
+	
+	Query<Student_embed> q = session.createQuery("from Student_embed",Student_embed.class);
+	
+	// implementing pagination using hibernate
+	System.out.println(q);
+	
+	q.setFirstResult(1001);
+	q.setMaxResults(5);
+	
+	List<Student_embed> list = q.list();
+	
+	System.out.println(list);
+	for(Student_embed s : list)
+	{
+//		System.out.println(s.getId()+" : "+s.getName()+" : "+s.getCity()+" : "+s.getCerti());
+		System.out.println(s.getName());
+	}
 	
 	
     session.close();
